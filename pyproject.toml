@@ -1,0 +1,9 @@
+[project]
+name = "compgraph"
+version = "1.0.0"
+description = "Protótipo acadêmico GraphRAG/KAG com Neo4j e Streamlit"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+markers = ["integration: testes que dependem de Neo4j ativo"]
+addopts = "-ra"

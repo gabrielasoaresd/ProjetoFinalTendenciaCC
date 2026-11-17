@@ -1,0 +1,128 @@
+[
+  {
+    "id": "Q1",
+    "question": "O que o GraphRAG combina?",
+    "expected_entities": [
+      "graphrag",
+      "rag",
+      "knowledge_graph"
+    ],
+    "expected_relations": [
+      "COMBINES"
+    ],
+    "expected_doc_ids": [
+      "doc_graphrag_01"
+    ]
+  },
+  {
+    "id": "Q2",
+    "question": "Como Neo4j representa o conhecimento e qual linguagem o consulta?",
+    "expected_entities": [
+      "neo4j",
+      "lpg",
+      "cypher"
+    ],
+    "expected_relations": [
+      "IMPLEMENTS",
+      "ENABLES"
+    ],
+    "expected_doc_ids": [
+      "doc_neo4j_03",
+      "doc_cypher_11"
+    ]
+  },
+  {
+    "id": "Q3",
+    "question": "Como a recuperação híbrida combina busca vetorial e textual?",
+    "expected_entities": [
+      "recuperacao_hibrida",
+      "busca_vetorial",
+      "full_text_search",
+      "embeddings"
+    ],
+    "expected_relations": [
+      "COMBINES",
+      "USES"
+    ],
+    "expected_doc_ids": [
+      "doc_retrieval_04",
+      "doc_embeddings_10"
+    ]
+  },
+  {
+    "id": "Q4",
+    "question": "Quais tarefas constroem um grafo a partir de texto?",
+    "expected_entities": [
+      "text_to_graph",
+      "ner",
+      "re"
+    ],
+    "expected_relations": [
+      "USES",
+      "EXTRACTS"
+    ],
+    "expected_doc_ids": [
+      "doc_text_graph_05"
+    ]
+  },
+  {
+    "id": "Q5",
+    "question": "Como encontrar conexões entre entidades em mais de um salto?",
+    "expected_entities": [
+      "raciocinio_multi_hop",
+      "knowledge_graph",
+      "cypher",
+      "neo4j"
+    ],
+    "expected_relations": [
+      "TRAVERSES",
+      "ENABLES"
+    ],
+    "expected_doc_ids": [
+      "doc_multihop_06",
+      "doc_cypher_11"
+    ]
+  },
+  {
+    "id": "Q6",
+    "question": "Como a interface demonstra a origem da resposta?",
+    "expected_entities": [
+      "streamlit",
+      "pyvis"
+    ],
+    "expected_relations": [
+      "VISUALIZES"
+    ],
+    "expected_doc_ids": [
+      "doc_ui_08",
+      "doc_provenance_12"
+    ]
+  },
+  {
+    "id": "Q7",
+    "question": "Qual algoritmo ajuda a identificar nós centrais?",
+    "expected_entities": [
+      "pagerank",
+      "knowledge_graph"
+    ],
+    "expected_relations": [
+      "EXTRACTS"
+    ],
+    "expected_doc_ids": [
+      "doc_pagerank_07"
+    ]
+  },
+  {
+    "id": "Q8",
+    "question": "Qual a diferença entre embeddings e LLM?",
+    "expected_entities": [
+      "embeddings",
+      "llm"
+    ],
+    "expected_relations": [],
+    "expected_doc_ids": [
+      "doc_embeddings_10",
+      "doc_llm_09"
+    ]
+  }
+]
