@@ -119,3 +119,17 @@ class Neo4jStore:
         OPTIONAL MATCH ()-[r]->() RETURN documents, entities, count(r) AS relationships
         """)
         return row[0] if row else {"documents": 0, "entities": 0, "relationships": 0}
+
+    def list_uploaded_documents(self) -> list[dict[str, Any]]:
+        return self.run("""
+        MATCH (d:Document) WHERE d.doc_id STARTS WITH 'upload_'
+        RETURN d.doc_id AS doc_id, d.title AS title ORDER BY d.title
+        """)
+
+    def delete_document(self, doc_id: str) -> None:
+        # 1) relações semânticas criadas a partir deste documento
+        self.run("MATCH ()-[r]->() WHERE r.doc_id = $doc_id DELETE r", {"doc_id": doc_id})
+        # 2) o documento e suas relações MENTIONS
+        self.run("MATCH (d:Document {doc_id: $doc_id}) DETACH DELETE d", {"doc_id": doc_id})
+        # 3) entidades que ficaram órfãs (nenhum documento as menciona mais)
+        self.run("MATCH (e:Entity) WHERE NOT (e)<-[:MENTIONS]-() DETACH DELETE e")

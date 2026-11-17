@@ -105,6 +105,22 @@ with st.sidebar:
             st.rerun()
         except Exception as exc:
             st.error(f"Falha ao processar documento: {exc}")
+
+    st.markdown("**Remover documento enviado**")
+    uploaded_docs = store.list_uploaded_documents() if connected else []
+    if uploaded_docs:
+        options = {f"{d['title']} ({d['doc_id']})": d["doc_id"] for d in uploaded_docs}
+        choice = st.selectbox("Documento enviado", list(options), key="doc_delete_select")
+        if st.button("Excluir documento selecionado", use_container_width=True):
+            try:
+                store.delete_document(options[choice])
+                get_resources.clear()
+                st.rerun()
+            except Exception as exc:
+                st.error(f"Falha ao excluir: {exc}")
+    else:
+        st.caption("Nenhum documento enviado.")
+
     st.divider()
     st.markdown("**Perguntas sugeridas**")
     st.markdown("- O que o GraphRAG combina?")
